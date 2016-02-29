@@ -1,0 +1,51 @@
+2015-11-09 22:24:32,427 [8] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:27:39,397 [8] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:31:06,884 [16] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:31:10,391 [14] ERROR QuiShiBaiKe.Web.MvcApplication - 系统发生了未经处理的异常
+System.Web.HttpException (0x80004005): 未找到路径“/UMessage/PostMsg”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-11-09 22:32:16,871 [26] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:33:35,458 [27] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:34:00,643 [22] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:36:14,906 [8] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149
+2015-11-09 22:38:38,288 [7] ERROR QuiShiBaiKe.Web.Controllers.MessageController - 上传到七牛云失败，发生异常
+：Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   在 Qiniu.IO.Resumable.ResumablePut.ResumableBlockPut(Client client, Byte[] body, Int32 blkIdex, Int32 blkSize)
+   在 Qiniu.IO.Resumable.ResumablePut.PutFile(String upToken, String localFile, String key)
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PutFile(String bucketName, String imgFileFullPath, String imgPathKey) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 195
+   在 QuiShiBaiKe.Web.Controllers.MessageController.PostMsg(FormCollection fm) 位置 e:\win7_zhuomian\QuiShiBaiKe\QuiShiBaiKe.Web\Controllers\MessageController.cs:行号 149

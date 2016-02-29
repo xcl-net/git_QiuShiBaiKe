@@ -1,0 +1,12 @@
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\QiuShiBaiKe.DAL.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\QiuShiBaiKe.DAL.pdb
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\EntityFramework.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\QiuShiBaiKe.Model.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\QiuShiBaiKe.Model.pdb
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\EntityFramework.xml
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\obj\Debug\QiuShiBaiKe.DAL.csprojResolveAssemblyReference.cache
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\obj\Debug\QiuShiBaiKe.DAL.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.DAL\obj\Debug\QiuShiBaiKe.DAL.pdb

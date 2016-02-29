@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+<script src="~/Scripts/common.js"></script>
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+    var refreshValidCode = function () {
+        $("#imgValidCode").attr("src", "/User/GenerateValidCode?time=" + new Date());
+    }
+    var registerSuccess = function (data) {
+        if (data.isOK) {
+            window.location.href = data.nextUrl;
+        }
+        else {
+            refreshValidCode();
+            alert(data.msg);
+        }
+    }
+    var registerError = function () {
+        alert("注册请求处理失败");
+    }
+    $(function () {
+        $("#btnReg").click(function () {
+            if (!isEmpty("userName", "用户名") || !isEmpty("password", "密码")
+                || !isEmpty("password2", "确认密码") || !isEmpty("validCode", "验证码")) {
+                return;
+            }
+            var userName = $("#userName").val();
+            var password = $("#password").val();
+            var password2 = $("#password2").val();
+            var validCode = $("#validCode").val();
+            if (password != password2) {
+                alert("两次输入的密码不一致");
+                return;
+            }
+            $.ajax({
+                type: "post", dataType: "json", url: "/User/Register",
+                data: { userName: userName, password: password, validCode: validCode },
+                success: registerSuccess, error: registerError
+            });
+        });
+        $("#imgValidCode").click(refreshValidCode);
+    });
+</script>
+<style type="text/css">
+    .loginForm tr,.loginForm input,.loginForm img {
+        height:30px;
+        vertical-align:central;
+        margin:2px;
+            
+    }
+    #btnReg {
+        width:100px;
+    }
+</style>
+<table class="loginForm">
+    <tr><td>用户名</td><td><input type="text" id="userName" /></td></tr>
+    <tr><td>密 码 </td><td><input type="password" id="password" /></td></tr>
+    <tr><td>确认密码</td><td><input type="password" id="password2" /></td></tr>
+    <tr><td>验证码</td><td><input type="text" id="validCode" /></td></tr>
+    <tr><td></td><td><img src="/User/GenerateValidCode" id="imgValidCode" /></td></tr>
+    <tr><td></td><td><input type="button" id="btnReg" value="注册"/></td></tr>
+</table>

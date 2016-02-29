@@ -1,0 +1,9 @@
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\QiuShiBaiKe.Commons.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\QiuShiBaiKe.Commons.pdb
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\obj\Debug\QiuShiBaiKe.Commons.csprojResolveAssemblyReference.cache
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\obj\Debug\QiuShiBaiKe.Commons.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\obj\Debug\QiuShiBaiKe.Commons.pdb
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\ServiceStack.Common.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\ServiceStack.Interfaces.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\ServiceStack.Redis.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Commons\bin\Debug\ServiceStack.Text.dll

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "投稿";
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+<script type="text/javascript">
+    //页面加载，聚焦
+    $(function () {
+        $("#msg").focus();
+    });
+</script>
+<style>
+    form {
+    margin-bottom:10px;
+    font-size:18px;
+    }
+</style>
+@using (Html.BeginForm("PostMsg", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @:你要发表的糗事:<br/>
+    @Html.TextArea("msg", new { id="msg",rows="10",cols="80",placeholder="最多300个字符" })
+    <br />
+    <label>
+    @Html.CheckBox("isAnonymous", new { id="isAnonymous"})匿名
+    <br />
+    您可以选择一张图片：<input type="file" name="imgFile" id="imgFile" /><br />
+        <input type="submit" value="发表" />
+   </label>
+
+}
+

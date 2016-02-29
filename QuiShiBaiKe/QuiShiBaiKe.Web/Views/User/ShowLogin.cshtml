@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/common.js"></script>
+<script type="text/javascript">
+   
+    var refreshValidCode = function () {
+        $("#imgValidCode").attr("src", "/User/GenerateValidCode?time=" + new Date());
+    }
+    var loginSuccess = function (data) {
+        if (data.isOk) {
+            //登录成功，尝试跳转
+           
+               window.location.href = data.nextUrl;
+           
+        } else {
+            //失败，刷新验证码
+            refreshValidCode();
+            alert(data.msg);
+        }
+    }
+    var loginError = function () {
+        alert("登录请求失败");
+    }
+    //页面加载
+    $(function () {
+        $("#userName").focus();
+        //单击提交按钮
+        $("#btnLogin").click(function () {
+            //非空检查
+            //if (!isEmpty("userName","用户名")||!isEmpty("passWord","密码")||!isEmpty("validCode","验证码")) {
+            //    return;
+            //}
+            var userName = $("#userName").val();
+            var passWord = $("#passWord").val();
+            //var validCode = $("#validCode").val();
+            //, validCode: validCode
+            $.ajax({
+                type: "post", url: "/User/Login",
+                data: { userName: userName, passWord: passWord },
+                success: loginSuccess,
+                error:loginError
+            });
+
+        });
+        
+        $("#imgValidCode").click(refreshValidCode);
+    });
+</script>
+<style type="text/css">
+    .loginForm tr,.loginForm input,.loginForm img {
+        height:30px;
+        vertical-align:central;
+        margin:2px;
+    }
+    #btnLogin {
+        width:100px;
+    }
+</style>
+<table class="loginForm">
+    <tr><td>用户名</td><td><input type="text" id="userName" /></td></tr>
+    <tr><td>密 码 </td><td><input type="password" id="passWord" /></td></tr>
+    <tr><td>验证码</td><td><input type="text" id="validCode" /></td></tr>
+    <tr><td></td><td><img src="/User/GenerateValidCode" id="imgValidCode" /></td></tr>
+    <tr><td colspan="2"><input type="button" id="btnLogin" value="登录"/></td></tr>
+</table>
+

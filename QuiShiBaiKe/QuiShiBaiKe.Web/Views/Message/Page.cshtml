@@ -1,0 +1,87 @@
+﻿@model List< QiuShiBaiKe.Model.Message>
+@using QuiShiBaiKe.Web
+@using QiuShiBaiKe.BLL
+@{
+    ViewBag.Title = "最新糗事";
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+<link href="~/static/css/pageStyle.css" rel="stylesheet" />
+@*加载糗事列表展示*@
+
+@{
+    foreach (var message in Model)
+    {
+        
+        <div class="block untagged" id="qiushi_tag_@message.Id">
+
+        <div class="detail">
+        <a href="#" target="_blank"></a>
+        </div>  
+            @{if (!message.IsAnonymous)//用户名不匿名加载
+              {
+                  <div class="author">
+                  <img src="~/static/images/thumb/missing.png" alt="@message.User.UserName">
+                  <a href="#">@message.User.UserName</a></div>
+              }
+                }
+        <div class="content" title="@message.CreateDateTime">
+
+        @message.Msg
+
+        </div>
+            @{
+                if (!string.IsNullOrWhiteSpace(message.ImageUrl))
+                {
+                    <div class="thumb">
+                    <img src="@message.ImageUrl" />
+                    </div>
+                }
+                }
+
+
+        <div id="qiushi_counts_@message.Id" class="bar">
+        <ul>
+        <li id="vote-up-@message.Id" class="up">
+        <a href="#" id="up-@message.Id" title="@(message.SupportedNum)个顶">@(message.SupportedNum)</a>
+        </li>
+        <li id="vote-dn-@message.Id" class="down">
+        <a href="#" id="dn-@message.Id" title="@(message.OpposedNum==0?"0":("-"+message.OpposedNum))个拍">@(message.OpposedNum==0?"0":("-"+message.OpposedNum))</a>
+        </li>
+        <li class="comment">
+        @{
+           MessageBll messageBll=new MessageBll(WebHelper.DbContext);
+            }
+         <a href="/Message/Index/@message.Id" id="c-@message.Id" class="qiushi_comments" title="@(messageBll.GetCountComments(message.Id))条评论">
+         @(messageBll.GetCountComments(message.Id))
+         </a>
+        </li>
+        <li class="share">
+        <a title="分享">分享</a>
+        </li>
+        </ul>
+        <div class="sharebox">
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="">
+        <a class="bds_renren">人人网</a>
+        <a class="bds_qzone">QQ空间</a>
+        <a class="bds_tsina">新浪微博</a>
+        <a class="bds_tqq">腾讯微博</a>
+        <!---<a class="bds_mshare">一键分享</a>-->
+        <div class="arrow"></div>
+        </div>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="shadow"></div>
+        
+    }
+    
+    
+    }
+    
+<div  id="pagebar">
+    @* /Message/Page/{pageNum} 中的  pageNum  作用，只是为了替换分页组件中的 {pageNum} *@
+    @QuiShiBaiKe.Web.WebHelper.PagingModule("/Message/Page/{pageNum}",ViewBag.totalCount, ViewBag.pageSize,ViewBag.pageIndex)
+
+</div>

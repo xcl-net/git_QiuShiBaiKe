@@ -1,0 +1,30 @@
+﻿#pagebar {
+  margin-top:15px;
+}
+        /*li标签样式*/
+       #pagebar li {
+         
+        display:inline;
+        }
+        /*li中的a标签样式*/
+       #pagebar li > a {
+            position:relative;
+            float:left;
+            padding: 3px 12px;
+            margin-left: -1px;
+            /*line-height: 1.42857;*/
+            color: blue;
+            text-decoration: none;
+            background-color: rgba(236,229,216, 0.40);
+            border: 1px solid #DDD;
+            vertical-align:middle;
+            
+            }    
+         /*当前页码样式*/   
+       #pagebar .active > a {
+        z-index: 2;
+        color: #FFF;
+        cursor: default;
+        background-color: #428BCA;
+        border-color: #428BCA;
+        }

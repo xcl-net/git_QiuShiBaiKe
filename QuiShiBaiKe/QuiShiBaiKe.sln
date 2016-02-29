@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiShiBaiKe.Web", "QuiShiBaiKe.Web\QuiShiBaiKe.Web.csproj", "{0E722827-88B9-44DB-BF3F-854B59467F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QiuShiBaiKe.BLL", "QiuShiBaiKe.BLL\QiuShiBaiKe.BLL.csproj", "{76448129-74F9-4AE9-80D5-A15E716EC795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QiuShiBaiKe.DAL", "QiuShiBaiKe.DAL\QiuShiBaiKe.DAL.csproj", "{F77FB270-E332-4291-B6C1-99DF85099FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QiuShiBaiKe.Model", "QiuShiBaiKe.Model\QiuShiBaiKe.Model.csproj", "{C9E57929-E43E-4965-8A9A-E7D4C9AB8758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QiuShiBaiKe.Commons", "QiuShiBaiKe.Commons\QiuShiBaiKe.Commons.csproj", "{AABC3174-183D-49DD-A4BE-D2D0601FDCC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiShiBaiKe.DingShi", "QuiShiBaiKe.DingShi\QuiShiBaiKe.DingShi.csproj", "{D8861224-6F55-4521-B298-DEA515C53FFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E722827-88B9-44DB-BF3F-854B59467F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E722827-88B9-44DB-BF3F-854B59467F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E722827-88B9-44DB-BF3F-854B59467F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E722827-88B9-44DB-BF3F-854B59467F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76448129-74F9-4AE9-80D5-A15E716EC795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76448129-74F9-4AE9-80D5-A15E716EC795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76448129-74F9-4AE9-80D5-A15E716EC795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76448129-74F9-4AE9-80D5-A15E716EC795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77FB270-E332-4291-B6C1-99DF85099FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77FB270-E332-4291-B6C1-99DF85099FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77FB270-E332-4291-B6C1-99DF85099FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77FB270-E332-4291-B6C1-99DF85099FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E57929-E43E-4965-8A9A-E7D4C9AB8758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E57929-E43E-4965-8A9A-E7D4C9AB8758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E57929-E43E-4965-8A9A-E7D4C9AB8758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E57929-E43E-4965-8A9A-E7D4C9AB8758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AABC3174-183D-49DD-A4BE-D2D0601FDCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AABC3174-183D-49DD-A4BE-D2D0601FDCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AABC3174-183D-49DD-A4BE-D2D0601FDCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AABC3174-183D-49DD-A4BE-D2D0601FDCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8861224-6F55-4521-B298-DEA515C53FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8861224-6F55-4521-B298-DEA515C53FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8861224-6F55-4521-B298-DEA515C53FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8861224-6F55-4521-B298-DEA515C53FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

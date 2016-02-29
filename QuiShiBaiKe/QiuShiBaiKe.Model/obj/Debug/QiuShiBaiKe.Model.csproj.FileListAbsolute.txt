@@ -1,0 +1,11 @@
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\QiuShiBaiKe.Model.dll.config
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\QiuShiBaiKe.Model.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\QiuShiBaiKe.Model.pdb
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\EntityFramework.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\EntityFramework.xml
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\obj\Debug\QiuShiBaiKe.Model.csprojResolveAssemblyReference.cache
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\obj\Debug\QiuShiBaiKe.Model.dll
+E:\win7_zhuomian\QuiShiBaiKe\QiuShiBaiKe.Model\obj\Debug\QiuShiBaiKe.Model.pdb

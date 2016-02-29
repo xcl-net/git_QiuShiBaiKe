@@ -1,0 +1,199 @@
+﻿
+@using QiuShiBaiKe.Commons
+@using QiuShiBaiKe.Model
+
+@{
+    ViewBag.Title = CommonHelper.SubstringTitle(ViewBag.messageModel.Msg, 10);//使用了小技巧，缩减了代码；
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#comment_submit").click(function () {
+            var commentContent = $("#commentContent").val();
+            if (commentContent.length == 0) {
+                return;
+            }
+            var data = $("#commentForm").serialize();
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                data: data,
+                url: "/Comment/PostComment",
+                success: function (data) {
+                    if (data.isOk) {
+                        //异步刷新评论列表
+                        //$("html,body").animate({scrollTop:$("#divNode").offset().top},1000)
+                        
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        //点赞
+        $("#up-@ViewBag.messageModel.Id").click(function () {
+
+            //点击之后数量加一
+            var supportNum = 1;
+            var msgId = @(ViewBag.messageModel.Id);
+
+            $.ajax({
+                type:"post",
+                dataType: "json", url: "/Message/Support",
+                data:{supportNum:supportNum,msgId:msgId},
+                success:function(data){
+                    if (data.isOk) {
+                        //返回数据成功
+                        //修改 <a> 表标签中的值
+                        $("#up-@ViewBag.messageModel.Id").text(data.data.supportNumber);
+                    }else{
+                        //不处理
+                    }
+                
+                },
+                error:function(){
+                    alert("请求失败");
+                }
+            });
+        });
+        //点拍
+        $("#dn-@ViewBag.messageModel.Id").click(function () {
+            var oppsoeNum = 0;
+            var msgId = @(ViewBag.messageModel.Id) ;
+            $.ajax({
+                type: "post",
+                dataType: "json", url: "/Message/Oppose",
+                data: { oppsoeNum: oppsoeNum,msgId:msgId },
+                success: function (data) {
+                    if (data.isOk) {
+                        //返回数据成功
+                        //修改 <a> 表标签中的值
+                        var i=data.data.opposeNumber;
+                        if (i!=0) {
+                            $("#dn-@ViewBag.messageModel.Id").text('-'+data.data.opposeNumber);
+                        }else {
+                            $("#dn-@ViewBag.messageModel.Id").text(data.data.opposeNumber);
+                        }
+
+                        ;
+                    }
+                },
+                error: function () {
+                    alert("请求失败");
+                }
+            });
+
+        });
+    });
+  
+</script>
+
+<div class="block untagged noline" id="qiushi_tag_@ViewBag.messageModel.Id">
+<div class="author">
+<img src="~/static/images/thumb/missing.png" alt="@(ViewBag.messageModel.IsAnonymous?"匿名":ViewBag.messageModel.User.UserName)">
+<a href="#">@ViewBag.messageModel.User.UserName</a></div>
+
+<div class="content" title="@ViewBag.messageModel.CreateDateTime">
+@ViewBag.messageModel.Msg
+</div>
+@{
+    if (!string.IsNullOrWhiteSpace(ViewBag.messageModel.ImageUrl))
+    {
+        <div class="thumb">
+        <img src="@ViewBag.messageModel.ImageUrl" >
+        </div>
+    }
+
+}
+<div id="qiushi_counts_@ViewBag.messageModel.Id" class="bar">
+<ul>
+<li id="vote-up-@ViewBag.messageModel.Id" class="up">
+<a href="javascript:void(0);" id="up-@ViewBag.messageModel.Id" title="@(ViewBag.messageModel.SupportedNum)个顶">@(ViewBag.messageModel.SupportedNum)</a>
+</li>
+<li id="vote-dn-@ViewBag.messageModel.Id" class="down">
+<a href="javascript:void(0);" id="dn-@ViewBag.messageModel.Id" title="@(ViewBag.messageModel.OpposedNum==0?"0":("-"+ViewBag.messageModel.OpposedNum))个拍">@(ViewBag.messageModel.OpposedNum==0?"0":("-"+ViewBag.messageModel.OpposedNum))</a>
+</li>
+<li class="comment">
+<a href="javascript:void(0);" id="c-@ViewBag.messageModel.Id" class="qiushi_comments" title="@ViewBag.countComments 条评论">@ViewBag.countComments</a>
+</li>
+<li class="share">
+<a title="分享">分享</a>
+</li>
+</ul>
+<div class="sharebox">
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="">
+<a class="bds_renren">人人网</a>
+<a class="bds_qzone">QQ空间</a>
+<a class="bds_tsina">新浪微博</a>
+<a class="bds_tqq">腾讯微博</a>
+<!---<a class="bds_mshare">一键分享</a>-->
+<div class="arrow"></div>
+</div>
+</div>
+</div>
+
+
+<div class="comments" id="qiushi_comments_@ViewBag.messageModel.Id">
+<!-- <div class="close"><a class='closebtn' id='close_@ViewBag.messageModel.Id' href="#">关闭评论</a>
+共有0条评论
+</div>
+-->
+<div id="@ViewBag.messageModel.Id">
+    @{
+        int i = 1;
+        var commentListCurrent=ViewBag.commentsListCurrent as IQueryable<MessageComment>;
+        foreach (var comment in commentListCurrent)
+        {
+            <div id="comment-@comment.Id" class="comment-block floor-@(i++)">
+            <div class="avatars">
+
+            <img src="~/static/images/thumb/missing.png">
+
+            </div>
+            <div class="replay">
+
+            <a href="#" class="userlogin">@comment.User.UserName</a>
+
+            <span class="body">
+
+            @comment.Comment
+
+            </span>
+            </div>
+            <div class="report">
+            <a href="#" class="link">举报</a>
+            1
+            </div>
+            </div>
+        }
+
+    }
+
+</div>
+<div id="divNode"><!-- contents --></div><!-- 假设一个需要跳转到的节点 --> 
+<div class="input-block clearfix" id="commentLogined">
+<form method="post"   id="commentForm">
+@*<input type="hidden" name="comment[parent_id]">*@
+<input type="hidden" value="@ViewBag.messageModel.Id" name="comment[article_id]" id="comment_article_id">
+<textarea class="comment_input original" id="commentContent" name="comment[content]" placeholder="请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。"></textarea>
+<div class="row">
+@*<input type="hidden" value="0" name="comment[anonymous]">*@
+<a href="#" class="closebtn" id="cm-@ViewBag.messageModel.Id">收回评论</a>
+
+<button type="submit" id="comment_submit"> 发表</button>
+</div>
+</form>
+</div>
+
+<div class="logout login-block" id="commentFirstLogin">
+<a href="#" class="closebtn" id="cm-@ViewBag.messageModel.Id">收回评论</a>
+<span class="login-tips"><a href="/User/ShowLogin">登录</a>后才能发表评论</span>
+</div>
+</div>
+</div>
+
+
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "搜索";
+    Layout = "~/Views/_DefaultLayout.cshtml";
+}
+
+<link href="~/static/css/pageStyle.css" rel="stylesheet" />
+@*加载搜索到的糗事列表展示*@
+<style>
+
+    .keywordHighLight {
+    color:red;
+    }
+</style>
+@{
+    foreach (var message in ViewBag.resultSearches )
+    {
+        
+        <div class="block untagged" id="qiushi_tag_@message.Id">
+
+        <div class="detail">
+        <a href="#" target="_blank"></a>
+        </div>  
+       @*     @{if (!message.IsAnonymous)//用户名不匿名加载
+              {
+                  <div class="author">
+                  <img src="~/static/images/thumb/missing.png" alt="@message.User.UserName">
+                  <a href="#">@message.User.UserName</a></div>
+              }
+                }*@
+
+       <a style="color:blue" href="@message.Url">@Html.Raw(message.Msg)</a> 
+
+        </div>
+          
+        <div class="shadow"></div>
+        
+    }
+    
+    }
+    
+<div  id="pagebar">
+    @* /Message/Page/{pageNum} 中的  pageNum  作用，只是为了替换分页组件中的 {pageNum} *@
+    @QuiShiBaiKe.Web.WebHelper.PagingModule("/Search/Search/{pageNum}",ViewBag.totalCount, ViewBag.pageSize,ViewBag.pageIndex)
+
+</div>

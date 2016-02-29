@@ -1,0 +1,312 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="keywords" content="糗事网,糗百,搞笑图片,笑话"/>
+<meta name="description" content="最暴笑的真实糗事分享社区！在这里您可发现校园、办公室、家庭中正在发生的形形色色的搞笑糗事。"/>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<title>@ViewBag.Title :: 糗事百科 :: 快乐减压 健康生活</title>
+
+<link href='~/static/css/style_web.css' media="screen, projection" rel="stylesheet" type="text/css" />
+ 
+    <script type="text/javascript">
+        //2. 登录成功后的操作
+        var success= function(data) {
+            if (data.isOk) {
+                $("#login").show();
+                $("#logout").hide();
+                $("#userNameDisplay").text(data.data.UserName);
+                if ($("#commentFirstLogin").length>0) {//判断页面中是否有这个标签
+                    $("#commentFirstLogin").hide();//隐藏登录
+                    $("#commentLogined").show();//显示发表
+                }
+               
+            } else {
+                $("#login").hide();
+                $("#logout").show();
+                if ($("#commentFirstLogin").length > 0) {//判断页面中是否有这个标签
+                    $("#commentFirstLogin").show();
+                    $("#commentLogined").hide();
+                }
+            }
+        }
+        //1. 页面加载，检查是否登录
+        $(function () {
+            $.ajax({
+                type: "post", url: "/User/CheckLoginState",
+                dataType: "json",
+                success:success,
+                error:function(){alert("检查登陆状态失败");}
+            });
+        });
+
+    </script>
+    <style type="text/css">
+    .thumb img {
+    width:500px;
+    height:667px;
+    }
+
+</style>
+</head>
+<body>
+<a name="top"></a>
+<div class="head">
+<div class="content-block">
+<div class="logo"><a href="#">糗事百科</a></div>
+<div class="userbar">
+<div class="login hidden" id="login">
+<a href="#" class="username" title="个人中心" id="userNameDisplay"></a>
+<a href="/User/LoginOut" class="exit" title="退出">退出</a>
+ @{ Html.ActionLink("退出", "LoginOut", "User");}   
+<a href="#" class="message" title="小纸条"><span class="bti"></span><span id="unread_messages_count"></span></a>
+<a href="#" class="code" title="邀请码"><span class="bti"></span></a>
+</div>
+<div class="logout" id="logout">
+<a href="/User/ShowLogin" id='logintop'>登录</a>
+<a href="/User/ShowRegister">注册</a>
+<a href="#" target="_blank">手机客户端</a>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-bar clearfix">
+<div class="content-block">
+<div class="menu">
+<ul>
+<li class="menuout"><a  id="highlight"  href="/Home/Index">热门</a></li>
+<li class="sub menuout" onMouseOver="this.className='menuover'" onMouseOut="this.className='menuout'">
+<a href="#" class="submenutitle">精华</a>
+<a href="#" class="submenu">24小时内</a>
+<a href="#" class="submenu">7天内</a>
+<a href="#" class="submenu">30天内</a>
+</li>
+<li class="sub menuout" onMouseOver="this.className='menuover'" onMouseOut="this.className='menuout'">
+<a href="#" class="submenutitle">真相</a>
+<a href="#" class="submenu">硬菜</a>
+<a href="#" class="submenu">时令</a>
+</li>
+<li class="menuout"><a href="#">最新</a></li>
+<li class="menuout"><a href="#">穿越</a></li>
+<li class="menuout"><a href="#">审贴</a></li>
+<li class="menuout"><a href="/Message/ShowPostMsg">投稿</a></li>
+<li class="menuout"><a href="#" target="_blank">败家</a><span class="hot">HOT</span></li>
+</ul>
+</div>
+<div class="search">
+<script language=javascript>
+    function g(formname) {
+        var url = "http://www.baidu.com/baidu";
+        if (formname.s[1].checked) {
+            formname.ct.value = "2097152";
+        }
+        else {
+            formname.ct.value = "0";
+        }
+        formname.action = url;
+        return true;
+    }
+</script>
+<form name="f1"  target="_blank" method="post" action="/Search/Search" >
+<input name=word maxlength="100" value="@((string)Session["kw"])" class="searchinput" placeholder="搜索糗事">
+<input type="submit" value="搜索" class="searchbutton">
+<span>
+<input name=s type=radio>
+<input name=s type=radio checked>
+</span>
+</form>
+</div>
+</div>
+</div>
+<div class="main">
+<div class="content-block">
+
+<div class="col1">
+  @RenderBody()
+  <div class="shadow"></div>
+</div>
+
+<div class="col2">
+<div class="sponsor">
+</div>
+@*<div class="shadow"></div>*@
+<div class="microblog clearfix">
+<h3>收听</h3>
+<div class="content">
+<div class="qrcode">
+<span class="webchat"></span>用微信看糗百
+</div>
+<div class="snslink">
+<a href="#" target="_blank">QQ空间</a>
+<a href="#" target="_blank">腾讯微博</a>
+<a href="#" target="_blank">新浪微博</a>
+<a href="#" target="_blank">RSS订阅</a>
+<a href="#" target="_blank">新浪微刊</a>
+</div>
+</div>
+</div>
+<div class="shadow"></div>
+<div class="sponsor">
+
+</div>
+<div class="shadow"></div>
+<div class="tagsblock">
+<h3>标签</h3>
+<div class="content">
+<a href="#" rel="tag">伤不起</a>
+<a href="#" rel="tag">JJ</a>
+<a href="#" rel="tag">校园</a>
+<a href="#" rel="tag">围观</a>
+<a href="#" rel="tag">ML</a>
+<a href="#" rel="tag">美女</a>
+<a href="#" rel="tag">车震</a>
+<a href="#" rel="tag">火星文</a>
+<a href="#" rel="tag">非主流</a>
+<a href="#" rel="tag">一句话不割</a>
+<a href="#" rel="tag">穿越</a>
+<a href="#" rel="tag">打飞机</a>
+<a href="#" rel="tag">秒杀</a>
+<a href="#" rel="tag">萝莉</a>
+<a href="#" rel="tag">hold</a>
+<a href="#" rel="tag">腐女</a>
+<a href="#" rel="tag">小三</a>
+<a href="#" rel="tag">TT</a>
+<a href="#" rel="tag">御姐</a>
+<a href="#" rel="tag">mm</a>
+<a href="#" rel="tag">二奶</a>
+<a href="#" rel="tag">正太</a>
+<a href="#" rel="tag">你懂的</a>
+<a href="#">hao123小清新</a>
+<a href="#">更多...</a>
+</div>
+</div>
+<div class="shadow"></div>
+<div class="sponsor">
+@*<script type="text/javascript">
+    /*右侧3*/
+    var cpro_id = "u1101312";
+</script>
+<script src="cpro/ui/c.js" type="text/javascript"></script>*@
+</div>
+<div class="shadow"></div>
+<div class="gameblock">
+<h3>糗游戏</h3>
+<div class="content">
+<a href="#" target="_blank">
+<img src="~/static/css/img/web30.png?v=f549d">
+神仙道
+</a>
+<a href="#" target="_blank">
+<img src="~/static/css/img/web25.png?v=7088a">
+斩仙
+</a>
+<a href="#" target="_blank">
+<img src="~/static/css/img/web31.png?v=1673f">
+街机三国
+</a>
+</div>
+</div>
+<div class="shadow"></div>
+<div id="box">
+<div id="float" class="div1">
+<div id="float-ad" class="sponsor">
+</div>
+<div class="shadow"></div>
+<div class="yali" style="line-height:0;">
+<a href="#" target="_blank" onclick="_hmt.push(['_trackEvent', 'ad', 'click', 'yali'])">
+<img src="~/static/css/img/web32.jpg?v=20130710" width="300" height="150">
+</a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="w960 ptb5 fclb">
+<span class="ablink">
+<a href="#" target="_blank">关于糗百</a>
+<a href="#" target="_blank">免责声明</a>
+<a href="#" target="_blank">工作机会</a>
+<a href="#" target="_blank">在线反馈</a>
+<a href="#" target="_blank">手机客户端<span class="badge"></span></a>
+</span>
+&copy;qiushibaike.com <a href="#">苏ICP备11024271号-2</a>
+</div>
+<div class="w960 pt5 fcdb fz12 otlink">
+<a href="#"qsbk" target="_blank">hao123上网导航</a>
+<a href="#" target="_blank">360安全网址</a>
+<a href="#" target="_blank">搜狗网址导航</a>
+<a href="#" target="_blank">淘宝联盟橱窗推广</a>
+<a href="#" target="_blank">秘密</a>
+</div>
+<!-- KanShu AD -->
+<span class="ext-link"></span>
+</div>
+<div class="signin-box" id="login-form">
+<div class="signin-close">
+<a class="close">X</a>
+</div>
+<div class="signin-title">
+<h1>登录</h1>
+</div>
+<div class="signin-error" id="signin-error">
+提示信息
+</div>
+<div class="signin-form">
+<form method="post" action="#">
+<input type="text" class="ipt-gray" name="login" placeholder="用户名">
+<input type="password" class="ipt-gray" name="password" placeholder="密码">
+<input type="checkbox" id="remember_me" name="remember_me" checked="" value="checked" style="display:none">
+<button type="submit" class="btn-green" onclick="_hmt.push(['_trackEvent', 'login', 'click', 'qiubai'])">登录</button>
+</form>
+</div>
+<div class="signin-account">
+有糗百帐号并绑定过密保，可用密保登录：
+<span class="signin-icon-qq"></span>
+<a href="#"qq" target="_blank" onclick="_hmt.push(['_trackEvent', 'login', 'click', 'qq'])">腾讯QQ</a>
+<span class="signin-icon-weibo"></span>
+<a href="#" target="_blank" onclick="_hmt.push(['_trackEvent', 'login', 'click', 'weibo'])">新浪微博</a>
+</div>
+<div class="signin-foot">
+<a href="#" onclick="_hmt.push(['_trackEvent', 'login', 'click', 'fetchpass'])">找回密码</a>
+<a href="#" onclick="_hmt.push(['_trackEvent', 'login', 'click', 'signup'])">注册</a>
+</div>
+</div>
+
+<div id="suggest-form">
+<a href="#" class="close"><div class="bti"></div></a>
+<div class="ie6-fix"></div>
+<div class="form-block">
+<h1>请帮助我们进步</h1>
+<form action="#" method="post">
+<textarea type="text" id="suggest-text" name="suggestion" tabindex="1"></textarea>
+<button type="submit">提交</button>
+</form>
+</div>
+</div>
+<div id="report-form">
+<a href="#" class="close" id="close-form"><div class="bti"></div></a>
+<div class="ie6-fix"></div>
+<div class="form-block">
+<form action="#" method="post">
+<strong>请选择理由</strong>
+<input type="hidden" name="comment_id" value="" />
+<label for='abusive'><input id='abusive' type="radio" name="reason" value="abusive"/> 辱骂</label>
+<label for='porn'><input id='porn' type="radio" name="reason" value="porn"/> 色情</label>
+<label for='spam'><input id='spam' type="radio" name="reason" value="spam"/> 广告</label>
+<label for='waste'><input id='waste' type="radio" name="reason" value="waste"/> 浪费楼层</label>
+<button type="submit">提交</button>
+</form>
+</div>
+</div>
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<!-- jQuery Placeholder Plugin -->
+@*<script>
+    $('input[placeholder], textarea[placeholder]').placeholder();
+</script>*@
+
+</body>
+</html>
